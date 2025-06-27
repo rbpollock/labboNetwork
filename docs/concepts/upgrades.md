@@ -1,19 +1,19 @@
 ---
-description: How Colony's upgradeable contract's work
+description: How Labbo's upgradeable contract's work
 sidebar_position: 2
 ---
 
 # Upgrade design
 
-The contracts comprising the Colony Network are upgradeable using the Delegate Proxy design pattern.
+The contracts comprising the Labbo Network are upgradeable using the Delegate Proxy design pattern.
 
-Providing an upgrade path is important to allow for the continuous improvement of the Colony Network. At the same time, all depreciated versions of Colony should remain functional indefinitely after deployment, so that the organizations created are not predicated upon the actions/efforts of a third party.
+Providing an upgrade path is important to allow for the continuous improvement of the Labbo Network. At the same time, all depreciated versions of Labbo should remain functional indefinitely after deployment, so that the organizations created are not predicated upon the actions/efforts of a third party.
 
 In other words, upgrades to any individual colony on the network are "opt-in", while the network as a whole remains eternally backwards-compatible.
 
 **Delegate Proxy Pattern**
 
-Interacting with both the Colony Network and individual colonies on the network is somewhat different than many other smart contract interactions that a blockchain developer might not be accustomed to.
+Interacting with both the Labbo Network and individual colonies on the network is somewhat different than many other smart contract interactions that a blockchain developer might not be accustomed to.
 
 Rather than calling functions directly from the contract in which they are deployed, all transactions are signed and sent to the `EtherRouter` contract.
 

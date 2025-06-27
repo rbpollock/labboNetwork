@@ -2,9 +2,9 @@
 
 Coin Machine is a mechanism to sell tokens within a colony, simplifying the process for all participants involved. It introduces the functionality to sell limited amounts of tokens in fixed-price batches, adjusting prices up or down in between sale periods based on recent demand. Coin Machine sacrifices continual availability and real-time price adjustment for the simplicity of fixed price and fixed supply, thereby also sidestepping the challenges of price manipulation, volatility, and front-running.
 
-_This is a Colony Extension which conforms to the extension interface found [here](icolonyextension.md)._
+_This is a Labbo Extension which conforms to the extension interface found [here](icolonyextension.md)._
 
-See [here](https://colony.gitbook.io/colony/extensions/coin-machine) for more information.
+See [here](https://labbo.gitbook.io/colony/extensions/coin-machine) for more information.
 
   
 ## Interface Methods
@@ -127,18 +127,6 @@ Gets the bytes32 representation of the roles authorized to call a function
 |---|---|---|
 |roles|bytes32|bytes32 representation of the authorized roles
 
-### ▸ `getColony():address colony`
-
-Gets the address of the extension's colony
-
-
-
-**Return Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|colony|address|The address of the colony
-
 ### ▸ `getCurrentPrice():uint256 _price`
 
 Get the current price per token
@@ -186,6 +174,18 @@ Get the evolvePrice boolean
 |Name|Type|Description|
 |---|---|---|
 |_evolve|bool|The evolvePrice boolean
+
+### ▸ `getLabbo():address colony`
+
+Gets the address of the extension's colony
+
+
+
+**Return Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|colony|address|The address of the colony
 
 ### ▸ `getMaxPerPeriod():uint256 _max`
 
@@ -483,7 +483,7 @@ Verifies the signature for the metatransaction
 
 ### ▸ `version():uint256 colonyVersion`
 
-Get the Colony contract version. Starts from 1 and is incremented with every deployed contract change.
+Get the Labbo contract version. Starts from 1 and is incremented with every deployed contract change.
 
 
 

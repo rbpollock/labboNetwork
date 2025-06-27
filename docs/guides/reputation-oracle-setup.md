@@ -5,11 +5,11 @@ sidebar_position: 1
 
 # Reputation Oracle Setup
 
-If you'd like to run the reputation oracle locally (for development purposes or to try some of the examples in ColonySDK), please follow this guide.
+If you'd like to run the reputation oracle locally (for development purposes or to try some of the examples in LabboSDK), please follow this guide.
 
-## Deploy Colony locally
+## Deploy Labbo locally
 
-First we need to deploy the Colony Network contracts locally. Please follow [this guide](deploying-colony-locally) to the end to do that first.
+First we need to deploy the Labbo Network contracts locally. Please follow [this guide](deploying-colony-locally) to the end to do that first.
 
 :::info
 After successful deployment, leave the Ganache development server running. The Reputation Oracle makes heavy use of it and the contracts that are deployed on our local chain!
@@ -20,10 +20,10 @@ After successful deployment, leave the Ganache development server running. The R
 The Reputation Oracle sets up an HTTP API that provides information about reputation states in Colonies.
 
 :::caution
-Make sure you're on a recent version of the `colonyNetwork`, git hash `eac730e` should work or, in the future the git tag `glwss`.
+Make sure you're on a recent version of the `labboNetwork`, git hash `eac730e` should work or, in the future the git tag `glwss`.
 :::
 
-To start the oracle, go to the `colonyNetwork` directory and run this command:
+To start the oracle, go to the `labboNetwork` directory and run this command:
 
 ```bash
 npm run start:reputation:oracle

@@ -1,13 +1,13 @@
 ---
-description: A Quick Overview of the Important Colony Concepts
+description: A Quick Overview of the Important Labbo Concepts
 sidebar_position: 1
 ---
 
-# Colony
+# Labbo
 
-Colony is a protocol for a new type of open, meritocratic organization that operates via software rather than paperwork and management hierarchy.
+Labbo is a protocol for a new type of open, meritocratic organization that operates via software rather than paperwork and management hierarchy.
 
-A colony is a set of smart contracts on the Ethereum blockchain that contains all of the normal functions of a traditional firm, as well as some new functions that are only possible using a decentralized platform. Using the functions built into Colony, an organization can do:
+A colony is a set of smart contracts on the Ethereum blockchain that contains all of the normal functions of a traditional firm, as well as some new functions that are only possible using a decentralized platform. Using the functions built into Labbo, an organization can do:
 
 * Decision making
 * Ownership
@@ -16,13 +16,13 @@ A colony is a set of smart contracts on the Ethereum blockchain that contains al
 * Work management and delegation
 * Financial management
 
-The basic ideas of how Colony fits together are presented below.
+The basic ideas of how Labbo fits together are presented below.
 
 ## Tasks
 
-The smallest conceptual unit within a Colony is a **task**. A task is a discrete unit of work which requires no further subdivision or delegation, and which can be evaluated as complete or incomplete based on some set of criteria.
+The smallest conceptual unit within a Labbo is a **task**. A task is a discrete unit of work which requires no further subdivision or delegation, and which can be evaluated as complete or incomplete based on some set of criteria.
 
-There is intentionally no further prescription for how a task is meant to be used within a colony. Depending on context and criteria, a task could be called a "bounty", a "salary", a "reimbursement", or an "incentive".
+There is intentionally no further prescription for how a task is meant to be used within a labbo. Depending on context and criteria, a task could be called a "bounty", a "salary", a "reimbursement", or an "incentive".
 
 At a minimum, a newly created task must be assigned a `domainId` and reference a specification for the task's completion, i.e. a description of the work to be done and how that work will be evaluated.
 
@@ -30,17 +30,17 @@ At a minimum, a newly created task must be assigned a `domainId` and reference a
 
 ## Reputation and Tokens
 
-In an organization of any type, reputation is an essential heuristic for people to keep track of each other's perceived merit in an environment of limited information. Reputation within Colony is meant to stay as close as possible to the concept of reputation as it is commonly understood. Reputation is a representation of _merit_, which in Colony implies an immutable record of contributions to a shared goal.
+In an organization of any type, reputation is an essential heuristic for people to keep track of each other's perceived merit in an environment of limited information. Reputation within Labbo is meant to stay as close as possible to the concept of reputation as it is commonly understood. Reputation is a representation of _merit_, which in Labbo implies an immutable record of contributions to a shared goal.
 
-In the Colony Protocol, **reputation** is a number that quantifies a particular individual’s influence, calculated from the sum of work that has been completed within the colony.
+In the Labbo Protocol, **reputation** is a number that quantifies a particular individual’s influence, calculated from the sum of work that has been completed within the labbo.
 
-Every Colony has its own **internal token** which complements reputation. Tokens, when earned as a task payout, create reputation for the recipient.
+Every Labbo has its own **internal token** which complements reputation. Tokens, when earned as a task payout, create reputation for the recipient.
 
 Tasks are expected to be funded with internal tokens (thus awarding reputation), and/or payment tokens (which do not confer reputation). When a task is funded, the task awaits work completion and approval before paying out to a worker.
 
 Unlike a token, reputation cannot be transacted between accounts, and can only be gained or lost through the completion of tasks, the resolution of disputes, or participating in the reputation mining process. Reputation decays over time due to encourage frequent and regular engagement-- it has a half-life of \~3.5 months.
 
-Within a colony, both tokens and reputation are required in order to create tasks and domains, to raise objections or disputes, and to vote on the collective actions/decisions of the colony.
+Within a colony, both tokens and reputation are required in order to create tasks and domains, to raise objections or disputes, and to vote on the collective actions/decisions of the labbo.
 
 It's up to each colony to decide how they use their token. Creators of a colony get to determine an initial `TokenSupplyCeiling` and `TokenIssuanceRate`. Depending on how these parameters are set and what the colony does, tokens could be valuable and bought/sold for a hefty price, or they could be ubiquitous and more of a symbolic gesture -- like an upvote.
 

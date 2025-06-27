@@ -1,5 +1,5 @@
 ---
-description: About tasks and payments in Colony
+description: About tasks and payments in Labbo
 sidebar_position: 5
 ---
 
@@ -11,11 +11,11 @@ A task is a discrete unit of work which requires no further subdivision or deleg
 
 A payment is similar to a task, without the requirement of "on-chain" management. Payments simply transfer tokens to external accounts directly from a domain pot to an external account. (and confer reputation if made in the colony's internal token).
 
-There is intentionally no further prescription for how tasks or payments are meant to be used within a colony. Depending on context and criteria, they could be called "bounties", "salaries", "reimbursements", or "incentives".
+There is intentionally no further prescription for how tasks or payments are meant to be used within a labbo. Depending on context and criteria, they could be called "bounties", "salaries", "reimbursements", or "incentives".
 
 ### Task structure
 
-This is a general description of the Task as it functions in the current Colony Network implementation, with some aspects suppressed for legibility. For a more exact description, please refer to the [ColonyJS](https://docs.colony.io/colonyjs/api) API or [IColony.sol](../interfaces/icolony).
+This is a general description of the Task as it functions in the current Labbo Network implementation, with some aspects suppressed for legibility. For a more exact description, please refer to the [LabboJS](https://docs.labbo.io/colonyjs/api) API or [ILabbo.sol](../interfaces/icolony).
 
 | component              | description                                                                                             |
 | ---------------------- | ------------------------------------------------------------------------------------------------------- |
@@ -28,7 +28,7 @@ This is a general description of the Task as it functions in the current Colony 
 
 ### Roles
 
-Every task has three roles associated with it which determine permissions for editing the task, submitting work, and ratings for performance. In the `colonyNetwork` contracts, the roles are represented as 8-bit numbers to keep permission logic simple.
+Every task has three roles associated with it which determine permissions for editing the task, submitting work, and ratings for performance. In the `labboNetwork` contracts, the roles are represented as 8-bit numbers to keep permission logic simple.
 
 | Role \[`role Id`] | Description                                                                                                                                              |
 | ----------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -38,7 +38,7 @@ Every task has three roles associated with it which determine permissions for ed
 
 Once created, some changes to a task require the signature of multiple roles.
 
-Additionally, in the first version of the Colony Network, the creation and modification of tasks is mediated by `auth` roles as described in the [Colony Roles](permissions.md).
+Additionally, in the first version of the Labbo Network, the creation and modification of tasks is mediated by `auth` roles as described in the [Labbo Roles](permissions.md).
 
 ## The Task Life-cycle
 
@@ -76,7 +76,7 @@ When work is submitted, the work rating period begins.
 
 _\* If no work is submitted by the task's due date, `completeTask()` must be called by the Manager to open the work rating period_
 
-One large determiner of reputation within a colony is the rating that one has earned for completing tasks within the colony. In addition to serving as a quick reference for one's ability and commitment to the shared values of the organization, reputation (combined with token holdings) grant one a portion of the colony's revenue, paid out in rewards.
+One large determiner of reputation within a colony is the rating that one has earned for completing tasks within the labbo. In addition to serving as a quick reference for one's ability and commitment to the shared values of the organization, reputation (combined with token holdings) grant one a portion of the colony's revenue, paid out in rewards.
 
 Reputation changes are determined by work rating, which is rated on the basis of 3 possible outcomes:
 

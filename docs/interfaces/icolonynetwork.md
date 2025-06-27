@@ -1,32 +1,19 @@
-# Colony Network (`IColonyNetwork`)
+# Labbo Network (`ILabboNetwork`)
 
-The functions for managing the Colony Network as a whole. Includes functions
+The functions for managing the Labbo Network as a whole. Includes functions
 for creating and upgrading colonies, managing the reputation mining process,
 managing the skills used in colonies, and managing colony ENS names.
 These functions are not publically callable, but rather callable by
-the Meta Colony, a special colony which controls the network.
+the Meta Labbo, a special colony which controls the network.
 
   
 ## Interface Methods
-
-### ▸ `addColonyVersion(uint256 _version, address _resolver)`
-
-Adds a new Colony contract version and the address of associated `_resolver` contract. Secured function to authorised members. Allowed to be called by the Meta Colony only.
-
-
-**Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|_version|uint256|The new Colony contract version
-|_resolver|address|Address of the `Resolver` contract which will be used with the underlying `EtherRouter` contract
-
 
 ### ▸ `addExtensionToNetwork(bytes32 _extensionId, address _resolver)`
 
 Add a new extension resolver to the Extensions repository.
 
-*Note: Can only be called by the MetaColony.*
+*Note: Can only be called by the MetaLabbo.*
 
 **Parameters**
 
@@ -34,6 +21,19 @@ Add a new extension resolver to the Extensions repository.
 |---|---|---|
 |_extensionId|bytes32|keccak256 hash of the extension name, used as an indentifier
 |_resolver|address|The deployed resolver containing the extension contract logic
+
+
+### ▸ `addLabboVersion(uint256 _version, address _resolver)`
+
+Adds a new Labbo contract version and the address of associated `_resolver` contract. Secured function to authorised members. Allowed to be called by the Meta Labbo only.
+
+
+**Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|_version|uint256|The new Labbo contract version
+|_resolver|address|Address of the `Resolver` contract which will be used with the underlying `EtherRouter` contract
 
 
 ### ▸ `addPendingReputationUpdate(uint256 _chainId, address _colony)`
@@ -80,7 +80,7 @@ Adds a reputation update entry to log.
 
 ### ▸ `addSkill(uint256 _parentSkillId):uint256 _skillId`
 
-Adds a new skill to the domain or local skills tree, under skill `_parentSkillId`. Any colony is allowed to add a local skill and which is associated with a new domain via `IColony.addDomain`.
+Adds a new skill to the domain or local skills tree, under skill `_parentSkillId`. Any colony is allowed to add a local skill and which is associated with a new domain via `ILabbo.addDomain`.
 
 *Note: Errors if the parent skill does not exist or if this is called by an unauthorised sender.*
 
@@ -242,7 +242,7 @@ Used by a user to claim any mining rewards due to them. This will place them in 
 |_recipient|address|The user whose rewards to claim
 
 
-### ▸ `createColony(address _tokenAddress):address _colonyAddress`
+### ▸ `createLabbo(address _tokenAddress):address _labboAddress`
 
 Creates a new colony in the network, at version 3
 
@@ -258,9 +258,9 @@ Creates a new colony in the network, at version 3
 
 |Name|Type|Description|
 |---|---|---|
-|_colonyAddress|address|Address of the newly created colony
+|_labboAddress|address|Address of the newly created colony
 
-### ▸ `createColony(address _tokenAddress, uint256 _version, string memory _colonyName):address _colonyAddress`
+### ▸ `createLabbo(address _tokenAddress, uint256 _version, string memory _labboName):address _labboAddress`
 
 Creates a new colony in the network, with an optional ENS name
 
@@ -272,15 +272,15 @@ Creates a new colony in the network, with an optional ENS name
 |---|---|---|
 |_tokenAddress|address|Address of an ERC20 token to serve as the colony token
 |_version|uint256|The version of colony to deploy (pass 0 for the current version)
-|_colonyName|string|The label to register (if null, no label is registered)
+|_labboName|string|The label to register (if null, no label is registered)
 
 **Return Parameters**
 
 |Name|Type|Description|
 |---|---|---|
-|_colonyAddress|address|Address of the newly created colony
+|_labboAddress|address|Address of the newly created colony
 
-### ▸ `createColony(address _tokenAddress, uint256 _version, string memory _colonyName, string memory _metadata):address _colonyAddress`
+### ▸ `createLabbo(address _tokenAddress, uint256 _version, string memory _labboName, string memory _metadata):address _labboAddress`
 
 Creates a new colony in the network, with an optional ENS name
 
@@ -292,18 +292,18 @@ Creates a new colony in the network, with an optional ENS name
 |---|---|---|
 |_tokenAddress|address|Address of an ERC20 token to serve as the colony token
 |_version|uint256|The version of colony to deploy (pass 0 for the current version)
-|_colonyName|string|The label to register (if null, no label is registered)
+|_labboName|string|The label to register (if null, no label is registered)
 |_metadata|string|The metadata associated with the new colony
 
 **Return Parameters**
 
 |Name|Type|Description|
 |---|---|---|
-|_colonyAddress|address|Address of the newly created colony
+|_labboAddress|address|Address of the newly created colony
 
-### ▸ `createColony(address _tokenAddress, uint256 _version, string memory _colonyName, string memory _orbitdb, bool _useExtensionManager):address _colonyAddress`
+### ▸ `createLabbo(address _tokenAddress, uint256 _version, string memory _labboName, string memory _orbitdb, bool _useExtensionManager):address _labboAddress`
 
-Overload of the simpler `createColony` -- creates a new colony in the network with a variety of options, at version 4
+Overload of the simpler `createLabbo` -- creates a new colony in the network with a variety of options, at version 4
 
 *Note: This is now deprecated and will be removed in a future version*
 
@@ -313,7 +313,7 @@ Overload of the simpler `createColony` -- creates a new colony in the network wi
 |---|---|---|
 |_tokenAddress|address|Address of an ERC20 token to serve as the colony token
 |_version|uint256|The version of colony to deploy (pass 0 for the current version)
-|_colonyName|string|The label to register (if null, no label is registered)
+|_labboName|string|The label to register (if null, no label is registered)
 |_orbitdb|string|DEPRECATED Currently a no-op
 |_useExtensionManager|bool|DEPRECATED Currently a no-op
 
@@ -321,9 +321,9 @@ Overload of the simpler `createColony` -- creates a new colony in the network wi
 
 |Name|Type|Description|
 |---|---|---|
-|_colonyAddress|address|Address of the newly created colony
+|_labboAddress|address|Address of the newly created colony
 
-### ▸ `createColonyForFrontend(address _tokenAddress, string memory _name, string memory _symbol, uint8 _decimals, uint256 _version, string memory _colonyName, string memory _metadata):address token, address colony`
+### ▸ `createLabboForFrontend(address _tokenAddress, string memory _name, string memory _symbol, uint8 _decimals, uint256 _version, string memory _labboName, string memory _metadata):address token, address colony`
 
 Creates a new colony in the network, possibly with a token and token authority, with an optional ENS name
 
@@ -338,7 +338,7 @@ Creates a new colony in the network, possibly with a token and token authority, 
 |_symbol|string|The short 'ticket' symbol for the token (optional)
 |_decimals|uint8|The number of decimal places that 1 user-facing token can be divided up in to (optional) In the case of ETH, and most tokens, this is 18.
 |_version|uint256|The version of colony to deploy (pass 0 for the current version)
-|_colonyName|string|The label to register (if null, no label is registered)
+|_labboName|string|The label to register (if null, no label is registered)
 |_metadata|string|The metadata associated with the new colony
 
 **Return Parameters**
@@ -348,9 +348,9 @@ Creates a new colony in the network, possibly with a token and token authority, 
 |token|address|The address of the token - this may just be the passed _tokenAddress
 |colony|address|
 
-### ▸ `createMetaColony(address _tokenAddress)`
+### ▸ `createMetaLabbo(address _tokenAddress)`
 
-Create the Meta Colony, same as a normal colony plus the root skill.
+Create the Meta Labbo, same as a normal colony plus the root skill.
 
 
 **Parameters**
@@ -402,7 +402,7 @@ Called to deploy a token.
 
 ### ▸ `deprecateExtension(bytes32 _extensionId, bool _deprecated)`
 
-Set the deprecation of an extension in a colony. Can only be called by a Colony.
+Set the deprecation of an extension in a colony. Can only be called by a Labbo.
 
 
 **Parameters**
@@ -521,26 +521,9 @@ Get the id of the child skill at index `_childSkillIndex` for skill with Id `_sk
 |---|---|---|
 |_childSkillId|uint256|Skill Id of the requested child skill
 
-### ▸ `getColony(uint256 _id):address _colonyAddress`
+### ▸ `getCurrentLabboVersion():uint256 _version`
 
-Get a colony address by its Id in the network.
-
-
-**Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|_id|uint256|Id of the colony to get
-
-**Return Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|_colonyAddress|address|The colony address, if no colony was found, returns 0x0
-
-### ▸ `getColonyBridgeAddress():address bridge`
-
-Called to get the next bridge in the list after bridge _bridgeAddress
+Returns the latest Labbo contract version. This is the version used to create all new colonies.
 
 
 
@@ -548,60 +531,7 @@ Called to get the next bridge in the list after bridge _bridgeAddress
 
 |Name|Type|Description|
 |---|---|---|
-|bridge|address|The address of the bridge to the mining chain, if set
-
-### ▸ `getColonyCount():uint256 _count`
-
-Get the number of colonies in the network.
-
-
-
-**Return Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|_count|uint256|The colony count
-
-### ▸ `getColonyCreationSalt():bytes32 salt`
-
-Pseudo-randomly generates a salt used for colony creation
-
-
-
-**Return Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|salt|bytes32|The generated salt
-
-### ▸ `getColonyVersionResolver(uint256 _version):address _resolverAddress`
-
-Get the `Resolver` address for Colony contract version `_version`.
-
-
-**Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|_version|uint256|The Colony contract version
-
-**Return Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|_resolverAddress|address|Address of the `Resolver` contract
-
-### ▸ `getCurrentColonyVersion():uint256 _version`
-
-Returns the latest Colony contract version. This is the version used to create all new colonies.
-
-
-
-**Return Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|_version|uint256|The current / latest Colony contract version
+|_version|uint256|The current / latest Labbo contract version
 
 ### ▸ `getENSRegistrar():address _address`
 
@@ -663,9 +593,26 @@ Return 1 / the fee to pay to the network. e.g. if the fee is 1% (or 0.01), retur
 |---|---|---|
 |_feeInverse|uint256|The inverse of the network fee
 
-### ▸ `getMetaColony():address _colonyAddress`
+### ▸ `getLabbo(uint256 _id):address _labboAddress`
 
-Get the Meta Colony address.
+Get a colony address by its Id in the network.
+
+
+**Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|_id|uint256|Id of the colony to get
+
+**Return Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|_labboAddress|address|The colony address, if no colony was found, returns 0x0
+
+### ▸ `getLabboBridgeAddress():address bridge`
+
+Called to get the next bridge in the list after bridge _bridgeAddress
 
 
 
@@ -673,7 +620,60 @@ Get the Meta Colony address.
 
 |Name|Type|Description|
 |---|---|---|
-|_colonyAddress|address|The Meta colony address, if no colony was found, returns 0x0
+|bridge|address|The address of the bridge to the mining chain, if set
+
+### ▸ `getLabboCount():uint256 _count`
+
+Get the number of colonies in the network.
+
+
+
+**Return Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|_count|uint256|The colony count
+
+### ▸ `getLabboCreationSalt():bytes32 salt`
+
+Pseudo-randomly generates a salt used for colony creation
+
+
+
+**Return Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|salt|bytes32|The generated salt
+
+### ▸ `getLabboVersionResolver(uint256 _version):address _resolverAddress`
+
+Get the `Resolver` address for Labbo contract version `_version`.
+
+
+**Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|_version|uint256|The Labbo contract version
+
+**Return Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|_resolverAddress|address|Address of the `Resolver` contract
+
+### ▸ `getMetaLabbo():address _labboAddress`
+
+Get the Meta Labbo address.
+
+
+
+**Return Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|_labboAddress|address|The Meta colony address, if no colony was found, returns 0x0
 
 ### ▸ `getMetatransactionNonce(address userAddress):uint256 nonce`
 
@@ -996,16 +996,16 @@ Get token locking contract address.
 
 ### ▸ `initialise(address _resolver, uint256 _version)`
 
-Initialises the colony network by setting the first Colony version resolver to `_resolver` address.
+Initialises the colony network by setting the first Labbo version resolver to `_resolver` address.
 
-*Note: Only allowed to be run once, by the Network owner before any Colony versions are added.*
+*Note: Only allowed to be run once, by the Network owner before any Labbo versions are added.*
 
 **Parameters**
 
 |Name|Type|Description|
 |---|---|---|
-|_resolver|address|Address of the resolver for Colony contract
-|_version|uint256|Version of the Colony contract the resolver represents
+|_resolver|address|Address of the resolver for Labbo contract
+|_version|uint256|Version of the Labbo contract the resolver represents
 
 
 ### ▸ `initialiseReputationMining(uint256 miningChainId, bytes32 newHash, uint256 newNLeaves)`
@@ -1037,7 +1037,7 @@ Initialise the local skills tree for a colony
 
 ### ▸ `installExtension(bytes32 _extensionId, uint256 _version)`
 
-Install an extension in a colony. Can only be called by a Colony.
+Install an extension in a colony. Can only be called by a Labbo.
 
 
 **Parameters**
@@ -1048,7 +1048,19 @@ Install an extension in a colony. Can only be called by a Colony.
 |_version|uint256|Version of the extension to install
 
 
-### ▸ `isColony(address _colony):bool _addressIsColony`
+### ▸ `isInRecoveryMode():bool inRecoveryMode`
+
+Is colony network in recovery mode.
+
+
+
+**Return Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|inRecoveryMode|bool|Return true if recovery mode is active, false otherwise
+
+### ▸ `isLabbo(address _colony):bool _addressIsLabbo`
 
 Check if specific address is a colony created on colony network.
 
@@ -1063,19 +1075,7 @@ Check if specific address is a colony created on colony network.
 
 |Name|Type|Description|
 |---|---|---|
-|_addressIsColony|bool|true if specified address is a colony, otherwise false
-
-### ▸ `isInRecoveryMode():bool inRecoveryMode`
-
-Is colony network in recovery mode.
-
-
-
-**Return Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|inRecoveryMode|bool|Return true if recovery mode is active, false otherwise
+|_addressIsLabbo|bool|true if specified address is a colony, otherwise false
 
 ### ▸ `lookupRegisteredENSDomain(address _addr):string _domain`
 
@@ -1092,7 +1092,7 @@ Reverse lookup a username from an address.
 
 |Name|Type|Description|
 |---|---|---|
-|_domain|string|A string containing the colony-based ENS name corresponding to addr
+|_domain|string|A string containing the labbo-based ENS name corresponding to addr
 
 ### ▸ `multicall(bytes[] calldata data):bytes[] results`
 
@@ -1138,16 +1138,16 @@ Function called to punish people who staked against a new reputation root hash t
 |_amount|uint256|Amount of stake to slash
 
 
-### ▸ `registerColonyLabel(string memory _colonyName, string memory _orbitdb)`
+### ▸ `registerLabboLabel(string memory _labboName, string memory _orbitdb)`
 
-Register a "colony.joincolony.eth" label. Can only be called by a Colony.
+Register a "colony.joincolony.eth" label. Can only be called by a Labbo.
 
 
 **Parameters**
 
 |Name|Type|Description|
 |---|---|---|
-|_colonyName|string|The label to register.
+|_labboName|string|The label to register.
 |_orbitdb|string|The path of the orbitDB database associated with the colony name
 
 
@@ -1190,18 +1190,6 @@ Used to track that a user is eligible to claim a reward
 |_amount|uint256|The amount of CLNY to be awarded
 
 
-### ▸ `setColonyBridgeAddress(address _bridgeAddress)`
-
-Called to set the address of the colony bridge contract
-
-
-**Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|_bridgeAddress|address|The address of the bridge
-
-
 ### ▸ `setFeeInverse(uint256 _feeInverse)`
 
 Set the colony network fee to pay. e.g. if the fee is 1% (or 0.01), pass 100 as `_feeInverse`.
@@ -1212,6 +1200,18 @@ Set the colony network fee to pay. e.g. if the fee is 1% (or 0.01), pass 100 as 
 |Name|Type|Description|
 |---|---|---|
 |_feeInverse|uint256|The inverse of the network fee to set
+
+
+### ▸ `setLabboBridgeAddress(address _bridgeAddress)`
+
+Called to set the address of the colony bridge contract
+
+
+**Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|_bridgeAddress|address|The address of the bridge
 
 
 ### ▸ `setMiningDelegate(address _delegate, bool _allowed)`
@@ -1288,7 +1288,7 @@ Set a replacement log entry if we're in recovery mode.
 
 Called to set the total per-cycle reputation reward, which will be split between all miners.
 
-*Note: Can only be called by the MetaColony.*
+*Note: Can only be called by the MetaLabbo.*
 
 **Parameters**
 
@@ -1386,7 +1386,7 @@ Starts a new Reputation Mining cycle. Explicitly called only the first time, sub
 
 ### ▸ `startTokenAuction(address _token)`
 
-Create and start a new `DutchAuction` for the entire amount of `_token` owned by the Colony Network.
+Create and start a new `DutchAuction` for the entire amount of `_token` owned by the Labbo Network.
 
 
 **Parameters**
@@ -1416,7 +1416,7 @@ Query if a contract implements an interface
 
 ### ▸ `uninstallExtension(bytes32 _extensionId)`
 
-Uninstall an extension in a colony. Can only be called by a Colony.
+Uninstall an extension in a colony. Can only be called by a Labbo.
 
 
 **Parameters**
@@ -1438,7 +1438,7 @@ Unstake CLNY currently staked for reputation mining.
 |_amount|uint256|Amount of CLNY staked for mining to unstake
 
 
-### ▸ `updateColonyOrbitDB(string memory _orbitdb)`
+### ▸ `updateLabboOrbitDB(string memory _orbitdb)`
 
 Update a colony's orbitdb address. Can only be called by a colony with a registered subdomain
 
@@ -1464,7 +1464,7 @@ Update a user's orbitdb address. Can only be called by a user with a registered 
 
 ### ▸ `upgradeExtension(bytes32 _extensionId, uint256 _newVersion)`
 
-Upgrade an extension in a colony. Can only be called by a Colony.
+Upgrade an extension in a colony. Can only be called by a Labbo.
 
 
 **Parameters**

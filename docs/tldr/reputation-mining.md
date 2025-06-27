@@ -1,5 +1,5 @@
 ---
-description: How You Can Help By Verifying Reputation on the Colony Network
+description: How You Can Help By Verifying Reputation on the Labbo Network
 sidebar_position: 9
 ---
 
@@ -7,13 +7,13 @@ sidebar_position: 9
 
 ## Whitepaper tl;dr: Reputation Mining
 
-This is an overview of the process by which Reputation scores in Colony are maintained.
+This is an overview of the process by which Reputation scores in Labbo are maintained.
 
-For a complete description of the Reputation Mining process, see the [whitepaper](https://colony.io/whitepaper.pdf)
+For a complete description of the Reputation Mining process, see the [whitepaper](https://labbo.io/whitepaper.pdf)
 
 ## Rationale for off-chain Reputation
 
-Events in Colony that affect reputation are numerous and expected to be frequent. The calculations for global reputation updates would be unreasonable to perform on-chain. However, Reputation doesn't _need_ to be on-chain, because reputation is entirely deterministic and calculated from on-chain events.
+Events in Labbo that affect reputation are numerous and expected to be frequent. The calculations for global reputation updates would be unreasonable to perform on-chain. However, Reputation doesn't _need_ to be on-chain, because reputation is entirely deterministic and calculated from on-chain events.
 
 So, rather than calculating reputation scores on-chain, users submit to the colony contract a transaction which contains their score, together with a proof that the score is consistent with the global state of reputation.
 
@@ -21,13 +21,13 @@ So, rather than calculating reputation scores on-chain, users submit to the colo
 
 The process of maintaining consensus over the global state of reputation is called _Reputation Mining_.
 
-Reputation Mining resembles a proof-of-stake blockchain consensus protocol. Miners must put up a stake of the network token, CLNY, to participate in the reputation mining process, whereby the global state of reputation is calculated off-chain and submitted to the blockchain as a `reputationRootHash`. In the case of honest submissions, the miner is rewarded reputation in the Meta Colony tagged with a special 'mining' skill. In the event of malicious activity, miners with false submission is punished by losing her stake.
+Reputation Mining resembles a proof-of-stake blockchain consensus protocol. Miners must put up a stake of the network token, CLNY, to participate in the reputation mining process, whereby the global state of reputation is calculated off-chain and submitted to the blockchain as a `reputationRootHash`. In the case of honest submissions, the miner is rewarded reputation in the Meta Labbo tagged with a special 'mining' skill. In the event of malicious activity, miners with false submission is punished by losing her stake.
 
 #### Reputation Updates
 
 One feature of reputation that distinguish it from a token or cryptographic asset is that reputation cannot be transferred between accounts through a voluntary transaction. Rather, it is a number associated with an address, calculated from a well-defined set of on-chain events.
 
-Reputation within a specific colony can only be earned and lost by completing tasks within the colony, through the [objections and disputes mechanism](disputes.md), and in the case of the Meta Colony, through participation in the reputation mining process.
+Reputation within a specific colony can only be earned and lost by completing tasks within the colony, through the [objections and disputes mechanism](disputes.md), and in the case of the Meta Labbo, through participation in the reputation mining process.
 
 #### Reputation Root Hashes
 
@@ -51,7 +51,7 @@ A miner is eligible to submit a new Root Hash only if they stake an amount of CL
 
 #### Challenges
 
-The complete challenge-response protocol is described in section 7.5.1 of the [Colony whitepaper](https://colony.io/whitepaper.pdf).
+The complete challenge-response protocol is described in section 7.5.1 of the [Labbo whitepaper](https://labbo.io/whitepaper.pdf).
 
 For the sake of legibility, the general process has been simplified below to describe a situation in which only two miners are participating in the challenge process, with one of them being a malicious actor:
 

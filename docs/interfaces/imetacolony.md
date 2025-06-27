@@ -1,6 +1,6 @@
-# Meta Colony (`IMetaColony`)
+# Meta Labbo (`IMetaLabbo`)
 
-The Meta Colony is a special colony which controls the Colony Network.
+The Meta Labbo is a special colony which controls the Labbo Network.
 This colony has access to a number of special functions used to manage
 various parameters of the network.
 
@@ -42,7 +42,7 @@ Add a colony domain, and its respective local skill under skill with id `_parent
 
 Add a new extension/version to the Extensions repository.
 
-*Note: Calls `IColonyNetwork.addExtensionToNetwork`.*
+*Note: Calls `ILabboNetwork.addExtensionToNetwork`.*
 
 **Parameters**
 
@@ -54,22 +54,22 @@ Add a new extension/version to the Extensions repository.
 
 ### ▸ `addLocalSkill()`
 
-Add a new local skill for the colony. Secured function to authorised members.
+Add a new local skill for the labbo. Secured function to authorised members.
 
 
 
 
-### ▸ `addNetworkColonyVersion(uint256 _version, address _resolver)`
+### ▸ `addNetworkLabboVersion(uint256 _version, address _resolver)`
 
-Adds a new Colony contract version and the address of associated `_resolver` contract. Secured function to authorised members.
+Adds a new Labbo contract version and the address of associated `_resolver` contract. Secured function to authorised members.
 
-*Note: Calls `IColonyNetwork.addColonyVersion`.*
+*Note: Calls `ILabboNetwork.addLabboVersion`.*
 
 **Parameters**
 
 |Name|Type|Description|
 |---|---|---|
-|_version|uint256|The new Colony contract version
+|_version|uint256|The new Labbo contract version
 |_resolver|address|Address of the `Resolver` contract which will be used with the underlying `EtherRouter` contract
 
 
@@ -119,7 +119,7 @@ Get the authority of the contract
 |---|---|---|
 |authority|DSAuthority|The authority of the contract
 
-### ▸ `bootstrapColony(address[] memory _users, int[] memory _amount)`
+### ▸ `bootstrapLabbo(address[] memory _users, int[] memory _amount)`
 
 Allows the colony to bootstrap itself by having initial reputation and token `_amount` assigned to `_users`. This reputation is assigned in the colony-wide domain. Secured function to authorised members.
 
@@ -135,7 +135,7 @@ Allows the colony to bootstrap itself by having initial reputation and token `_a
 
 ### ▸ `burnTokens(address token, uint256 amount)`
 
-Burn tokens held by the colony. Can only burn tokens held in the root funding pot.
+Burn tokens held by the labbo. Can only burn tokens held in the root funding pot.
 
 
 **Parameters**
@@ -185,7 +185,7 @@ Check whether the supplied slot is a protected variable specific to this contrac
 |_slot|uint256|The storage slot number to check.
 
 
-### ▸ `claimColonyFunds(address _token)`
+### ▸ `claimLabboFunds(address _token)`
 
 Move any funds received by the colony in `_token` denomination to the top-level domain pot, siphoning off a small amount to the reward pot. If called against a colony's own token, no fee is taken.
 
@@ -259,7 +259,7 @@ Deprecate a domain, preventing certain actions from happening there
 
 ### ▸ `deprecateExtension(bytes32 extensionId, bool deprecated)`
 
-Set the deprecation of an extension in a colony. Secured function to authorised members.
+Set the deprecation of an extension in a labbo. Secured function to authorised members.
 
 
 **Parameters**
@@ -272,7 +272,7 @@ Set the deprecation of an extension in a colony. Secured function to authorised 
 
 ### ▸ `deprecateLocalSkill(uint256 localSkillId, bool deprecated)`
 
-Deprecate a local skill for the colony. Secured function to authorised members.
+Deprecate a local skill for the labbo. Secured function to authorised members.
 
 
 **Parameters**
@@ -283,9 +283,9 @@ Deprecate a local skill for the colony. Secured function to authorised members.
 |deprecated|bool|Deprecation status to set for the skill
 
 
-### ▸ `editColony(string memory _metadata)`
+### ▸ `editLabbo(string memory _metadata)`
 
-Called to change the metadata associated with a colony. Expected to be a IPFS hash of a JSON blob, but not enforced to any degree by the contracts
+Called to change the metadata associated with a labbo. Expected to be a IPFS hash of a JSON blob, but not enforced to any degree by the contracts
 
 
 **Parameters**
@@ -295,9 +295,9 @@ Called to change the metadata associated with a colony. Expected to be a IPFS ha
 |_metadata|string|IPFS hash of the metadata
 
 
-### ▸ `editColonyByDelta(string memory _metadataDelta)`
+### ▸ `editLabboByDelta(string memory _metadataDelta)`
 
-Called to change the metadata associated with a colony. Expected to be a IPFS hash of a delta to a JSON blob, but not enforced to any degree by the contracts
+Called to change the metadata associated with a labbo. Expected to be a IPFS hash of a delta to a JSON blob, but not enforced to any degree by the contracts
 
 
 **Parameters**
@@ -497,18 +497,18 @@ Gets the bytes32 representation of the roles authorized to call a function
 |---|---|---|
 |roles|bytes32|bytes32 representation of the authorized roles
 
-### ▸ `getColonyNetwork():address colonyNetwork`
+### ▸ `getLabboNetwork():address labboNetwork`
 
-Returns the colony network address set on the Colony.
+Returns the colony network address set on the Labbo.
 
-*Note: The colonyNetworkAddress we read here is set once, during `initialiseColony`.*
+*Note: The labboNetworkAddress we read here is set once, during `initialiseLabbo`.*
 
 
 **Return Parameters**
 
 |Name|Type|Description|
 |---|---|---|
-|colonyNetwork|address|The address of Colony Network instance
+|labboNetwork|address|The address of Labbo Network instance
 
 ### ▸ `getDomain(uint256 _id):Domain domain`
 
@@ -529,7 +529,7 @@ Get a domain by id.
 
 ### ▸ `getDomainCount():uint256 count`
 
-Get the number of domains in the colony.
+Get the number of domains in the labbo.
 
 
 
@@ -575,7 +575,7 @@ Returns an existing expenditure.
 
 ### ▸ `getExpenditureCount():uint256 count`
 
-Get the number of expenditures in the colony.
+Get the number of expenditures in the labbo.
 
 
 
@@ -662,7 +662,7 @@ Get the `_token` balance of pot with id `_potId`.
 
 ### ▸ `getFundingPotCount():uint256 count`
 
-Get the number of funding pots in the colony.
+Get the number of funding pots in the labbo.
 
 
 
@@ -779,7 +779,7 @@ Returns an exiting payment.
 
 ### ▸ `getPaymentCount():uint256 count`
 
-Get the number of payments in the colony.
+Get the number of payments in the labbo.
 
 
 
@@ -816,7 +816,7 @@ Get useful information about specific reward payout.
 
 |Name|Type|Description|
 |---|---|---|
-|rewardPayoutCycle|RewardPayoutCycle|RewardPayoutCycle, containing propertes:  `reputationState` Reputation root hash at the time of creation,  `colonyWideReputation` Colony wide reputation in `reputationState`,  `totalTokens` Total colony tokens at the time of creation,  `amount` Total amount of tokens taken aside for reward payout,  `tokenAddress` Token address,  `blockTimestamp` Block number at the time of creation.
+|rewardPayoutCycle|RewardPayoutCycle|RewardPayoutCycle, containing propertes:  `reputationState` Reputation root hash at the time of creation,  `colonyWideReputation` Labbo wide reputation in `reputationState`,  `totalTokens` Total colony tokens at the time of creation,  `amount` Total amount of tokens taken aside for reward payout,  `tokenAddress` Token address,  `blockTimestamp` Block number at the time of creation.
 
 ### ▸ `getRootLocalSkill():uint256 rootLocalSkill`
 
@@ -873,7 +873,7 @@ Starts from 0 and is incremented on every co-reviewed task change via `executeTa
 
 ### ▸ `getTaskCount():uint256 count`
 
-Get the number of tasks in the colony.
+Get the number of tasks in the labbo.
 
 
 
@@ -921,7 +921,7 @@ Get the rating secret submitted for role `_role` in task `_id`
 
 ### ▸ `getTaskWorkRatingSecretsInfo(uint256 _id):uint256 nSecrets, uint256 lastSubmittedAt`
 
-Get the `ColonyStorage.RatingSecrets` information for task `_id`.
+Get the `LabboStorage.RatingSecrets` information for task `_id`.
 
 
 **Parameters**
@@ -1002,7 +1002,7 @@ Gets the bytes32 representation of the roles for a user in a given domain
 |---|---|---|
 |roles|bytes32|bytes32 representation of the held roles
 
-### ▸ `initialiseColony(address _colonyNetworkAddress, address _token)`
+### ▸ `initialiseLabbo(address _labboNetworkAddress, address _token)`
 
 Called once when the colony is created to initialise certain storage slot values.
 
@@ -1012,7 +1012,7 @@ Called once when the colony is created to initialise certain storage slot values
 
 |Name|Type|Description|
 |---|---|---|
-|_colonyNetworkAddress|address|Address of the colony network
+|_labboNetworkAddress|address|Address of the colony network
 |_token|address|Address of the colony ERC20 Token
 
 
@@ -1033,14 +1033,14 @@ Creates initial inactive reputation mining cycle.
 
 ### ▸ `initialiseRootLocalSkill()`
 
-Initialise the local skill tree for the colony.
+Initialise the local skill tree for the labbo.
 
 
 
 
 ### ▸ `installExtension(bytes32 extensionId, uint256 version)`
 
-Install an extension to the colony. Secured function to authorised members.
+Install an extension to the labbo. Secured function to authorised members.
 
 
 **Parameters**
@@ -1089,7 +1089,7 @@ Lock the colony's token. Can only be called by a network-managed extension.
 
 ### ▸ `makeArbitraryTransaction(address _to, bytes memory _action):bool success`
 
-Execute arbitrary transaction on behalf of the Colony
+Execute arbitrary transaction on behalf of the Labbo
 
 
 **Parameters**
@@ -1107,7 +1107,7 @@ Execute arbitrary transaction on behalf of the Colony
 
 ### ▸ `makeArbitraryTransactions(address[] memory _targets, bytes[] memory _actions, bool _strict):bool success`
 
-Execute arbitrary transactions on behalf of the Colony in series
+Execute arbitrary transactions on behalf of the Labbo in series
 
 
 **Parameters**
@@ -1126,7 +1126,7 @@ Execute arbitrary transactions on behalf of the Colony in series
 
 ### ▸ `makeExpenditure(uint256 _permissionDomainId, uint256 _childSkillIndex, uint256 _domainId):uint256 expenditureId`
 
-Add a new expenditure in the colony. Secured function to authorised members.
+Add a new expenditure in the labbo. Secured function to authorised members.
 
 
 **Parameters**
@@ -1281,7 +1281,7 @@ Get the owner of the contract
 |---|---|---|
 |owner|address|The owner of the contract
 
-### ▸ `registerColonyLabel(string memory colonyName, string memory orbitdb)`
+### ▸ `registerLabboLabel(string memory colonyName, string memory orbitdb)`
 
 Register colony's ENS label.
 
@@ -1354,7 +1354,7 @@ Set new colony architecture role. Can be called by root role or architecture rol
 |_setTo|bool|The state of the role permission (true assign the permission, false revokes it)
 
 
-### ▸ `setColonyBridgeAddress(address _bridgeAddress)`
+### ▸ `setLabboBridgeAddress(address _bridgeAddress)`
 
 Called to set the address of the colony bridge contract
 
@@ -1592,9 +1592,9 @@ Set new colony funding role. Can be called by root role or architecture role.
 
 ### ▸ `setNetworkFeeInverse(uint256 _feeInverse)`
 
-Set the Colony Network fee inverse amount.
+Set the Labbo Network fee inverse amount.
 
-*Note: Calls `IColonyNetwork.setFeeInverse`.*
+*Note: Calls `ILabboNetwork.setFeeInverse`.*
 
 **Parameters**
 
@@ -1617,7 +1617,7 @@ Set the owner of the contract
 
 ### ▸ `setPayoutWhitelist(address _token, bool _status)`
 
-Set a token's status in the payout whitelist on the Colony Network
+Set a token's status in the payout whitelist on the Labbo Network
 
 
 **Parameters**
@@ -1644,7 +1644,7 @@ Set new colony recovery role. Can be called by root.
 
 Called to set the total per-cycle reputation reward, which will be split between all miners.
 
-*Note: Calls the corresponding function on the ColonyNetwork.*
+*Note: Calls the corresponding function on the LabboNetwork.*
 
 **Parameters**
 
@@ -1710,7 +1710,7 @@ Set several roles in one transaction. Can be called by root role or architecture
 
 ### ▸ `startNextRewardPayout(address _token, bytes memory key, bytes memory value, uint256 branchMask, bytes32[] memory siblings)`
 
-Add a new payment in the colony. Can only be called by users with root permission. All tokens will be locked, and can be unlocked by calling `waiveRewardPayout` or `claimRewardPayout`.
+Add a new payment in the labbo. Can only be called by users with root permission. All tokens will be locked, and can be unlocked by calling `waiveRewardPayout` or `claimRewardPayout`.
 
 
 **Parameters**
@@ -1773,7 +1773,7 @@ Transfer some amount of obligated tokens. Can be called by the arbitration role.
 
 ### ▸ `uninstallExtension(bytes32 extensionId)`
 
-Uninstall an extension from a colony. Secured function to authorised members.
+Uninstall an extension from a labbo. Secured function to authorised members.
 
 *Note: This is a permanent action -- re-installing the extension will deploy a new contract*
 
@@ -1817,7 +1817,7 @@ Update the internal bookkeeping around external ERC20 approvals
 |spender|address|The account we have approved
 
 
-### ▸ `updateColonyOrbitDB(string memory orbitdb)`
+### ▸ `updateLabboOrbitDB(string memory orbitdb)`
 
 Update a colony's orbitdb address. Can only be called by a colony with a registered subdomain
 
@@ -1831,7 +1831,7 @@ Update a colony's orbitdb address. Can only be called by a colony with a registe
 
 ### ▸ `upgrade(uint _newVersion)`
 
-Upgrades a colony to a new Colony contract version `_newVersion`.
+Upgrades a colony to a new Labbo contract version `_newVersion`.
 
 *Note: Downgrades are not allowed, i.e. `_newVersion` should be higher than the currect colony version.*
 
@@ -1844,7 +1844,7 @@ Upgrades a colony to a new Colony contract version `_newVersion`.
 
 ### ▸ `upgradeExtension(bytes32 extensionId, uint256 newVersion)`
 
-Upgrade an extension in a colony. Secured function to authorised members.
+Upgrade an extension in a labbo. Secured function to authorised members.
 
 
 **Parameters**
@@ -1898,7 +1898,7 @@ Evaluates a "domain proof" which checks that childDomainId is part of the subtre
 
 Helper function that can be used by a client to verify the correctness of a patricia proof they have been supplied with.
 
-*Note: For more detail about branchMask and siblings, examine the PatriciaTree implementation. While external, likely only to be used by the Colony contracts, as it checks that the user is proving their own reputation in the current colony. The `verifyProof` function can be used to verify any proof, though this function is not currently exposed on the Colony's EtherRouter.*
+*Note: For more detail about branchMask and siblings, examine the PatriciaTree implementation. While external, likely only to be used by the Labbo contracts, as it checks that the user is proving their own reputation in the current labbo. The `verifyProof` function can be used to verify any proof, though this function is not currently exposed on the Labbo's EtherRouter.*
 
 **Parameters**
 
@@ -1917,7 +1917,7 @@ Helper function that can be used by a client to verify the correctness of a patr
 
 ### ▸ `version():uint256 colonyVersion`
 
-Get the Colony contract version. Starts from 1 and is incremented with every deployed contract change.
+Get the Labbo contract version. Starts from 1 and is incremented with every deployed contract change.
 
 
 

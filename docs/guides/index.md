@@ -1,5 +1,5 @@
 ---
-description: Guides for the Colony Network Smart Contracts
+description: Guides for the Labbo Network Smart Contracts
 sidebar_position: 1
 ---
 

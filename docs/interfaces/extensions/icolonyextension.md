@@ -1,6 +1,6 @@
-# Colony Extension (`IColonyExtension`)
+# Labbo Extension (`ILabboExtension`)
 
-Colony extensions are free-standing contracts which augment Colonies with
+Labbo extensions are free-standing contracts which augment Colonies with
 additional functionality. In addition to their specific functionality,
 all extensions conform to a standard interface, defined in this file.
 
@@ -64,18 +64,6 @@ Gets the bytes32 representation of the roles authorized to call a function
 |---|---|---|
 |roles|bytes32|bytes32 representation of the authorized roles
 
-### ▸ `getColony():address colony`
-
-Gets the address of the extension's colony
-
-
-
-**Return Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|colony|address|The address of the colony
-
 ### ▸ `getDeprecated():bool deprecated`
 
 Gets the boolean indicating whether or not the extension is deprecated
@@ -87,6 +75,18 @@ Gets the boolean indicating whether or not the extension is deprecated
 |Name|Type|Description|
 |---|---|---|
 |deprecated|bool|Boolean indicating whether or not the extension is deprecated
+
+### ▸ `getLabbo():address colony`
+
+Gets the address of the extension's colony
+
+
+
+**Return Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|colony|address|The address of the colony
 
 ### ▸ `getMetatransactionNonce(address userAddress):uint256 nonce`
 

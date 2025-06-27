@@ -1,6 +1,6 @@
 # Token Locking (`ITokenLocking`)
 
-This contract supports secure token voting for the Colony Network,
+This contract supports secure token voting for the Labbo Network,
 allowing for on-chain token votes to occur without the risk of "double-voting".
 Unlike Snapshot, which uses state snapshots to allow for secure voting off-chain,
 this contract allows for secure voting on-chain by preventing users from
@@ -14,7 +14,7 @@ have been deposited in this contract can be used to vote.
 
 Allow the colony to obligate some amount of tokens as a stake.
 
-*Note: Can only be called by a colony or colonyNetwork*
+*Note: Can only be called by a colony or labboNetwork*
 
 **Parameters**
 
@@ -27,7 +27,7 @@ Allow the colony to obligate some amount of tokens as a stake.
 
 ### ▸ `deobligateStake(address _user, uint256 _amount, address _token)`
 
-Deobligate the user some amount of tokens, releasing the stake. Can only be called by a colony or colonyNetwork.
+Deobligate the user some amount of tokens, releasing the stake. Can only be called by a colony or labboNetwork.
 
 
 **Parameters**
@@ -120,9 +120,9 @@ See how much an address has approved another address to obligate on their behalf
 |---|---|---|
 |approval|uint256|The total amount for this obligation
 
-### ▸ `getColonyNetwork():address networkAddress`
+### ▸ `getLabboNetwork():address networkAddress`
 
-Get ColonyNetwork address.
+Get LabboNetwork address.
 
 
 
@@ -130,7 +130,7 @@ Get ColonyNetwork address.
 
 |Name|Type|Description|
 |---|---|---|
-|networkAddress|address|ColonyNetwork address
+|networkAddress|address|LabboNetwork address
 
 ### ▸ `getMetatransactionNonce(address userAddress):uint256 nonce`
 
@@ -253,7 +253,7 @@ Locks everyones' tokens on `_token` address.
 
 ### ▸ `obligateStake(address _user, uint256 _amount, address _token)`
 
-Obligate the user some amount of tokens as a stake. Can only be called by a colony or colonyNetwork.
+Obligate the user some amount of tokens as a stake. Can only be called by a colony or labboNetwork.
 
 
 **Parameters**
@@ -279,17 +279,17 @@ This function is deprecated and only exists to aid upgrades.
 |_amount|uint256|The amount to reward
 
 
-### ▸ `setColonyNetwork(address _colonyNetwork)`
+### ▸ `setLabboNetwork(address _labboNetwork)`
 
-Set the ColonyNetwork contract address.
+Set the LabboNetwork contract address.
 
-*Note: ColonyNetwork is used for checking if sender is a colony created on colony network.*
+*Note: LabboNetwork is used for checking if sender is a colony created on colony network.*
 
 **Parameters**
 
 |Name|Type|Description|
 |---|---|---|
-|_colonyNetwork|address|Address of the ColonyNetwork
+|_labboNetwork|address|Address of the LabboNetwork
 
 
 ### ▸ `transfer(address _token, uint256 _amount, address _recipient, bool _force)`
@@ -309,7 +309,7 @@ Transfer tokens to a recipient's pending balance. Can only be called if user tok
 
 ### ▸ `transferStake(address _user, uint256 _amount, address _token, address _recipient)`
 
-Transfer some amount of staked tokens. Can only be called by a colony or colonyNetwork.
+Transfer some amount of staked tokens. Can only be called by a colony or labboNetwork.
 
 
 **Parameters**

@@ -1,5 +1,5 @@
 ---
-description: Learn About Important Terms Within Colony
+description: Learn About Important Terms Within Labbo
 sidebar_position: 0
 ---
 
@@ -7,7 +7,7 @@ sidebar_position: 0
 
 ### CLNY
 
-The Internal Token of the Meta Colony. CLNY is staked in the reputation mining process.
+The Internal Token of the Meta Labbo. CLNY is staked in the reputation mining process.
 
 ### Dispute
 
@@ -15,15 +15,15 @@ An objection to an objection triggers a dispute, which must be resolved through 
 
 ### Domain
 
-A category for organizing tasks, skills, and pots within a Colony. Domains can be thought of as 'departments' or 'divisions' within the larger organizational whole.
+A category for organizing tasks, skills, and pots within a Labbo. Domains can be thought of as 'departments' or 'divisions' within the larger organizational whole.
 
 ### Funding Pots
 
 All funding within a colony resides in pots. Pots can be thought of as 'earmarked' funds for a specific purpose, and depending on context, might be called a bounty, a budget, working capital, or rewards. A colony will have many pots, but at a minimum will have one pot for rewards ( `pots[0]` ) and one for working capital ( `pots[1]` ).
 
-### Meta Colony
+### Meta Labbo
 
-The Meta Colony is “the Colony colony” — its remit is to develop, support, and grow the Colony Network. Every colony on the public network needs the Meta Colony, and everyone may be a member.
+The Meta Labbo is “the Labbo colony” — its remit is to develop, support, and grow the Labbo Network. Every colony on the public network needs the Meta Labbo, and everyone may be a member.
 
 ### Internal Token
 
@@ -35,17 +35,17 @@ A statement by a member of a colony that proposes some variable in the contracts
 
 ### Reputation
 
-A number associated with an account which attempts to quantify the merit of a user’s recent contributions to a colony. Reputation is used to weight a user’s influence in decisions related to the expertise they have demonstrated, and to determine amounts owed to a colony’s members when rewards are disbursed.
+A number associated with an account which attempts to quantify the merit of a user’s recent contributions to a labbo. Reputation is used to weight a user’s influence in decisions related to the expertise they have demonstrated, and to determine amounts owed to a colony’s members when rewards are disbursed.
 
-Unlike tokens, reputation cannot be transferred between addresses; it must be earned by direct action within the colony. Reputation that is earned will eventually be lost through inactivity (decay), error, or malfeasance.
+Unlike tokens, reputation cannot be transferred between addresses; it must be earned by direct action within the labbo. Reputation that is earned will eventually be lost through inactivity (decay), error, or malfeasance.
 
 ### Reputation Mining
 
-The calculations involved in maintaining the entire state of reputation amongst all accounts on the Colony Network are far too complex to be performed on-chain. Instead, reputation is calculated off-chain and periodically put on-chain by CLNY holders in a process resembling a proof-of-stake blockchain protocol -- engaging in the process of updating the global state of reputation for the Colony Network is called "Reputation Mining".
+The calculations involved in maintaining the entire state of reputation amongst all accounts on the Labbo Network are far too complex to be performed on-chain. Instead, reputation is calculated off-chain and periodically put on-chain by CLNY holders in a process resembling a proof-of-stake blockchain protocol -- engaging in the process of updating the global state of reputation for the Labbo Network is called "Reputation Mining".
 
 ### Rewards
 
-When a colony earns Ether or other currencies as revenue, the revenue distribution system allocates some of them to be claimed as rewards. In particular, the special triggering transaction takes any such revenue that has accumulated since the last such transaction, and makes 99% available to the colony as working capital, while the remaining 1% is used to pay out rewards to users that hold both colony tokens and reputation in the colony.
+When a colony earns Ether or other currencies as revenue, the revenue distribution system allocates some of them to be claimed as rewards. In particular, the special triggering transaction takes any such revenue that has accumulated since the last such transaction, and makes 99% available to the colony as working capital, while the remaining 1% is used to pay out rewards to users that hold both colony tokens and reputation in the labbo.
 
 ### Role
 
@@ -59,7 +59,7 @@ A task has 3 roles associated with it:
 
 Skills are a global hierarchy of tags that can be assigned to any task. Tagging a task with a skill allows for a more granular account of the work a user completes to earn their reputation.
 
-The Meta Colony curates the hierarchy of global skill tags.
+The Meta Labbo curates the hierarchy of global skill tags.
 
 ### Task
 
@@ -75,4 +75,4 @@ An upper bound on the total supply of a token.
 
 ### Work Specification
 
-A description of the work to be done for a task. In the `colonyNetwork` contracts, the work specification is pointed to by a hash, and stored off-chain.
+A description of the work to be done for a task. In the `labboNetwork` contracts, the work specification is pointed to by a hash, and stored off-chain.

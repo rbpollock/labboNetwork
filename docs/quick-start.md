@@ -1,5 +1,5 @@
 ---
-description: Quick Start for developing the Colony Network Smart contracts
+description: Quick Start for developing the Labbo Network Smart contracts
 sidebar_position: 0
 ---
 
@@ -15,10 +15,10 @@ You will need:
 * [NodeJS](https://nodejs.org/en/) v14.x (use [nvm](https://github.com/nvm-sh/nvm))
 * [Docker](https://docs.docker.com/get-docker/) (at least v18, **optional**)
 
-The Colony Network contracts are written in [Solidity](https://soliditylang.org/) and are built, tested and deployed using the [Truffle Suite](https://trufflesuite.com/). With the above dependencies in place you can just follow the instructions below and the Colony Network build scripts will sort out everything else for you.
+The Labbo Network contracts are written in [Solidity](https://soliditylang.org/) and are built, tested and deployed using the [Truffle Suite](https://trufflesuite.com/). With the above dependencies in place you can just follow the instructions below and the Labbo Network build scripts will sort out everything else for you.
 
 :::tip
-If you're a Dapp developer looking to integrate with Colony, we recommend using [The Colony SDK](https://docs.colony.io/colonysdk/) as an entry point as it is the fastest way to start building with Colony. There you'll find analogous instructions better suited to building applications on top of the colonyNetwork. We also have created some [examples](https://github.com/JoinColony/colonyJS/tree/main/packages/sdk/examples) that you can try out [live in your browser](https://joincolony.github.io/colonyJS/)!
+If you're a Dapp developer looking to integrate with Labbo, we recommend using [The Labbo SDK](https://docs.labbo.io/colonysdk/) as an entry point as it is the fastest way to start building with Labbo. There you'll find analogous instructions better suited to building applications on top of the labboNetwork. We also have created some [examples](https://github.com/JoinLabbo/colonyJS/tree/main/packages/sdk/examples) that you can try out [live in your browser](https://joinlabbo.github.io/colonyJS/)!
 :::
 
 ## Cloning the repository and preparing the dependencies
@@ -26,22 +26,22 @@ If you're a Dapp developer looking to integrate with Colony, we recommend using 
 Clone the repository including all its git submodules using this command:
 
 ```bash
-git clone https://github.com/JoinColony/colonyNetwork.git --recursive
+git clone https://github.com/JoinLabbo/labboNetwork.git --recursive
 ```
 
 :::caution
 **Heads up!** Don't forget to add the `--recursive` flag to also clone the git submodules. They are important building blocks for some of the contracts.
 :::
 
-Change to the `colonyNetwork` directory and check out the latest version tag (find a list of all released versions and their tags [here](https://github.com/JoinColony/colonyNetwork/releases)):
+Change to the `labboNetwork` directory and check out the latest version tag (find a list of all released versions and their tags [here](https://github.com/JoinLabbo/labboNetwork/releases)):
 
 ```bash
-cd colonyNetwork
+cd labboNetwork
 git checkout eac730e # replace eac730e with glwss in the future as soon as it's available
 ```
 
 :::info
-Check out a tagged git release if you want to develop _against_ the ColonyNetwork contracts (like running an RPC node)! Only tagged GitHub releases are known to work under all circumstances and are the ones that ultimately get deployed to the relevant live chains. If you want to work on the ColonyNetwork contracts themselves, this should be omitted.
+Check out a tagged git release if you want to develop _against_ the LabboNetwork contracts (like running an RPC node)! Only tagged GitHub releases are known to work under all circumstances and are the ones that ultimately get deployed to the relevant live chains. If you want to work on the LabboNetwork contracts themselves, this should be omitted.
 :::
 
 Then, install the required dependencies using `npm`:
@@ -57,13 +57,13 @@ This will take some time. If you run into issues, see the Troubleshooting sectio
 
 ### Where to go from here?
 
-You're already able to make modifications to the contracts and run those against the tests. Next step is to [deploy the Colony Network contracts locally](guides/deploying-colony-locally).
+You're already able to make modifications to the contracts and run those against the tests. Next step is to [deploy the Labbo Network contracts locally](guides/deploying-colony-locally).
 
 ## Troubleshooting
 
 ### Q: There's a Python error, what's going on?
 
-A: Some ColonyNetwork dependencies require Python in older versions. To get around that, [pyenv](https://github.com/pyenv/pyenv) has been proven very useful. Install pyenv for your environment according to their [guide](https://github.com/pyenv/pyenv#installation), then issue the following command in the `colonyNetwork` directory:
+A: Some LabboNetwork dependencies require Python in older versions. To get around that, [pyenv](https://github.com/pyenv/pyenv) has been proven very useful. Install pyenv for your environment according to their [guide](https://github.com/pyenv/pyenv#installation), then issue the following command in the `labboNetwork` directory:
 
 ```bash
 pyenv install 2.7.18

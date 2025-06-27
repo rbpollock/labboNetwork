@@ -6,4 +6,4 @@ streaming payments, indicating the tokens and amounts to be transferred
 over a given interval of time. Users can then claim tokens continually, at
 whatever frequency they choose.
 
-_This is a Colony Extension which conforms to the extension interface found [here](icolonyextension.md)._
+_This is a Labbo Extension which conforms to the extension interface found [here](icolonyextension.md)._

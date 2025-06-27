@@ -1,6 +1,6 @@
 # Reputation Mining Cycle (`IReputationMiningCycle`)
 
-Used to manage the Colony Network reputation mining process. Short-lived
+Used to manage the Labbo Network reputation mining process. Short-lived
 contracts, each instance exists to support a single mining cycle, and exists
 in two phases: a first "inactive" phase, and a second, "active" phase.
 During the inactive phase, the contract stores all reputation updates which
@@ -10,7 +10,7 @@ log (now closed for updates) to calculate and submit the new reputation state.
   
 ## Interface Methods
 
-### ▸ `appendReputationUpdateLog(address _user, int256 _amount, uint256 _skillId, address _colonyAddress, uint128 _nParents, uint128 _nChildren)`
+### ▸ `appendReputationUpdateLog(address _user, int256 _amount, uint256 _skillId, address _labboAddress, uint128 _nParents, uint128 _nChildren)`
 
 Add a new entry to the reputation update log.
 
@@ -22,7 +22,7 @@ Add a new entry to the reputation update log.
 |_user|address|The address of the user having their reputation changed by this log entry
 |_amount|int256|The amount by which the user's reputation is going to change. Can be positive or negative.
 |_skillId|uint256|The skillId of the reputation being affected
-|_colonyAddress|address|The address of the colony the reputation is being affected in
+|_labboAddress|address|The address of the colony the reputation is being affected in
 |_nParents|uint128|The number of parent skills the skill defined by the skillId has
 |_nChildren|uint128|The number of child skills the skill defined by the skillId has
 
@@ -297,7 +297,7 @@ Get the address that made a particular submission.
 
 Initialise this reputation mining cycle.
 
-*Note: This will only be called once, by ColonyNetwork, in the same transaction that deploys this contract.*
+*Note: This will only be called once, by LabboNetwork, in the same transaction that deploys this contract.*
 
 **Parameters**
 
@@ -342,7 +342,7 @@ Returns a boolean result of whether the miner has already submitted at this entr
 
 Resets the timestamp that the submission window opens to `now`.
 
-*Note: only allowed to be called by ColonyNetwork.*
+*Note: only allowed to be called by LabboNetwork.*
 
 
 
@@ -377,15 +377,15 @@ Respond to challenge, to establish which (if either) of the two submissions faci
 |_agreeStateSiblings|bytes32[]|The siblings of the Merkle proof that the last reputation state the submitted hashes agreed on is in this submitted hash's justification tree
 |_disagreeStateSiblings|bytes32[]|The siblings of the Merkle proof that the first reputation state the submitted hashes disagreed on is in this submitted hash's justification tree
 |_userOriginReputationSiblings|bytes32[]|Nonzero for child updates only. The siblings of the Merkle proof of the user's origin skill reputation added to the reputation tree in the last reputation state the submitted hashes agree on
-|_childReputationSiblings|bytes32[]|Nonzero for child updates of a colony-wide global skill. The siblings of the Merkle proof of the child skill reputation of the user in the same skill this global update is for
+|_childReputationSiblings|bytes32[]|Nonzero for child updates of a labbo-wide global skill. The siblings of the Merkle proof of the child skill reputation of the user in the same skill this global update is for
 |_adjacentReputationSiblings|bytes32[]|Nonzero for updates involving insertion of a new skill. The siblings of the Merkle proof of a reputation in the agree state that ends adjacent to the new reputation
 
 
-### ▸ `rewardStakersWithReputation(address[] memory _stakers, uint256[] memory _weights, address _metaColonyAddress, uint256 _reward, uint256 _miningSkillId)`
+### ▸ `rewardStakersWithReputation(address[] memory _stakers, uint256[] memory _weights, address _metaLabboAddress, uint256 _reward, uint256 _miningSkillId)`
 
 Start the reputation log with the rewards for the stakers who backed the accepted new reputation root hash.
 
-*Note: Only callable by colonyNetwork. Note that the same address might be present multiple times in `stakers` - this is acceptable, and indicates the same address backed the same hash multiple times with different entries.*
+*Note: Only callable by labboNetwork. Note that the same address might be present multiple times in `stakers` - this is acceptable, and indicates the same address backed the same hash multiple times with different entries.*
 
 **Parameters**
 
@@ -393,7 +393,7 @@ Start the reputation log with the rewards for the stakers who backed the accepte
 |---|---|---|
 |_stakers|address[]|The array of stakers addresses to receive the reward.
 |_weights|uint256[]|The array of weights determining the proportion of reward to go to each staker
-|_metaColonyAddress|address|The address of the meta colony, which the special mining skill is earned in
+|_metaLabboAddress|address|The address of the meta colony, which the special mining skill is earned in
 |_reward|uint256|The amount of reputation to be rewarded to each staker
 |_miningSkillId|uint256|Skill id of the special mining skill
 

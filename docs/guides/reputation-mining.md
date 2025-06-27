@@ -7,7 +7,7 @@ sidebar_position: 2
 
 #### A. Introduction
 
-Colony's reputation system is key to its functionality, and in order to work successfully, with decays being calculated and new reputation being awarded as appropriate, it relies on the reputation 'mining' process. Any user with sufficient CLNY can stake that CLNY to participate in the process. This guide is intended to provide information for a (sufficiently technical) user who wishes to do so.
+Labbo's reputation system is key to its functionality, and in order to work successfully, with decays being calculated and new reputation being awarded as appropriate, it relies on the reputation 'mining' process. Any user with sufficient CLNY can stake that CLNY to participate in the process. This guide is intended to provide information for a (sufficiently technical) user who wishes to do so.
 
 To participate in the reputation mining process you need to have staked at least the minimum amount of CLNY Tokens (currently 2000 CLNY), for at least one full mining cycle duration (currently 60 minutes) before you can submit a new reputation root hash.
 
@@ -21,9 +21,9 @@ An appropriate gas price for the current level of network use can be found at [h
 2\. Create references to the various contracts that we will need. Run each of these commands in turn:
 
 ```javascript
-colonyNetwork = await IColonyNetwork.at("0x78163f593D1Fa151B4B7cacD146586aD2b686294" );
+labboNetwork = await ILabboNetwork.at("0x78163f593D1Fa151B4B7cacD146586aD2b686294" );
 clnyToken = await Token.at("0xc9B6218AffE8Aba68a13899Cbf7cF7f14DDd304C");
-tokenLockingAddress = await colonyNetwork.getTokenLocking();
+tokenLockingAddress = await labboNetwork.getTokenLocking();
 tokenLocking = await ITokenLocking.at(tokenLockingAddress);
 ```
 
@@ -39,9 +39,9 @@ clnyToken.approve.estimateGas(tokenLocking.address, "2000000000000000000000");
 // Deposit the tokens
 tokenLocking.deposit.estimateGas(clnyToken.address, "2000000000000000000000", false); 
 // Stake the tokens for mining
-colonyNetwork.stakeForMining.estimateGas("2000000000000000000000");
+labboNetwork.stakeForMining.estimateGas("2000000000000000000000");
 // (Optional) Confirm that the tokens have been staked
-await colonyNetwork.getMiningStake(accounts[0]);
+await labboNetwork.getMiningStake(accounts[0]);
 [
   '2000000000000000000000',
   '1613397970',
@@ -54,9 +54,9 @@ await colonyNetwork.getMiningStake(accounts[0]);
 
 ```javascript
 const miningDelegate = "your-delegate-address"
-colonyNetwork.setMiningDelegate.estimateGas(miningDelegate, true)
+labboNetwork.setMiningDelegate.estimateGas(miningDelegate, true)
 // To remove delegated mining permissions in the future, run the following
-colonyNetwork.setMiningDelegate.estimateGas(miningDelegate, false)
+labboNetwork.setMiningDelegate.estimateGas(miningDelegate, false)
 ```
 
 :::info
@@ -81,7 +81,7 @@ Regardless of which you use, you will need the private key you wish mining trans
 </TabItem>
 
 <TabItem value="repository" label="From repository" default>
-`node ./packages/reputation-miner/bin/index.js --providerAddress https://xdai-archive.blockscout.com --colonyNetworkAddress 0x78163f593D1Fa151B4B7cacD146586aD2b686294 --syncFrom 11897847 --privateKey $PRIVATE_KEY --dbPath ./reputations.sqlite`
+`node ./packages/reputation-miner/bin/index.js --providerAddress https://xdai-archive.blockscout.com --labboNetworkAddress 0x78163f593D1Fa151B4B7cacD146586aD2b686294 --syncFrom 11897847 --privateKey $PRIVATE_KEY --dbPath ./reputations.sqlite`
 </TabItem>
 </Tabs>
 
@@ -89,7 +89,7 @@ The docker image will create files in the directory you run this command from; y
 
 #### D. Getting a recent snapshot <a href="#snapshot" id="snapshot"></a>
 
-A recent snapshot, which should be from the last day or so, is available at [https://xdai.colony.io/reputation/xdai/latestState](https://xdai.colony.io/reputation/xdai/latestState).\
+A recent snapshot, which should be from the last day or so, is available at [https://xdai.labbo.io/reputation/xdai/latestState](https://xdai.labbo.io/reputation/xdai/latestState).\
 \
 After downloading, place it whichever directory you are running the reputation miner from, and rename it to `reputations.sqlite` (if you are using the commands above). Upon start, the miner will load this snapshot, and sync from there.
 

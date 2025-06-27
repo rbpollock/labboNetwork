@@ -2,9 +2,9 @@
 	path = lib/dappsys
 	url = https://github.com/JoinColony/dappsys-monolithic.git
   branch = maint/solidity8
-[submodule "lib/colonyToken"]
-	path = lib/colonyToken
-	url = https://github.com/JoinColony/colonyToken.git
+[submodule "lib/labboToken"]
+	path = lib/labboToken
+	url = https://github.com/JoinLabbo/labboToken.git
   branch = master
 [submodule "lib/safe-contracts"]
 	path = lib/safe-contracts

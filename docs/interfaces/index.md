@@ -1,5 +1,5 @@
 ---
-description: The Colony Network Interfaces API
+description: The Labbo Network Interfaces API
 sidebar_position: 5
 ---
 

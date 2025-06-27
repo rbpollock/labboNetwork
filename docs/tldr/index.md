@@ -1,5 +1,5 @@
 ---
-description: Colony Whitepaper tl;dr
+description: Labbo Whitepaper tl;dr
 sidebar_position: 3
 ---
 

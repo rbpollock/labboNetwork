@@ -5,11 +5,11 @@ sidebar_position: 6
 
 # Modular Permissions
 
-In the full implementation of the Colony protocol, decision making will be determined by the reputation score of an account. Actions that are currently permissioned, such as moving shared funds and creating a task, will be allowed proportionate to an account's reputation score. This functionality is planned for later releases.
+In the full implementation of the Labbo protocol, decision making will be determined by the reputation score of an account. Actions that are currently permissioned, such as moving shared funds and creating a task, will be allowed proportionate to an account's reputation score. This functionality is planned for later releases.
 
-In the current `glider` release, network state changes are authorized by dedicated "authority" contracts e.g. `ColonyAuthority.sol`. These are based on the `DSRoles` implementation from [dappsys](https://github.com/dapphub/dappsys-monolithic). Functions decorated with the `auth` and `authDomain` modifiers will perform an authorization check via the authority contracts before granting access. In future releases, this pattern will also allow us to switch to a reputation-mediated authority in colonies.
+In the current `glider` release, network state changes are authorized by dedicated "authority" contracts e.g. `LabboAuthority.sol`. These are based on the `DSRoles` implementation from [dappsys](https://github.com/dapphub/dappsys-monolithic). Functions decorated with the `auth` and `authDomain` modifiers will perform an authorization check via the authority contracts before granting access. In future releases, this pattern will also allow us to switch to a reputation-mediated authority in colonies.
 
-Roles are defined within `ColonyRole` struct and grant permission to call certain functions within a specific domain of the colony. These are initialized in `ColonyAuthority.sol`. An account may be given one or more of the available pre-defined roles:
+Roles are defined within `LabboRole` struct and grant permission to call certain functions within a specific domain of the labbo. These are initialized in `LabboAuthority.sol`. An account may be given one or more of the available pre-defined roles:
 
 * Administration
 * Funding
@@ -69,7 +69,7 @@ In this example,
 If a user with "Admininstration" authority in domain `2` wants to finalize a payment in domain `5`, they would call:
 
 ```
-colony.finalizePayment(2, 1, _paymentId);
+labbo.finalizePayment(2, 1, _paymentId);
 ```
 
 The `authDomain` modifier performs the following checks:
@@ -79,4 +79,4 @@ The `authDomain` modifier performs the following checks:
 
 Note: Functions authorized by the "Architecture" role check to see that the domain is strictly a child of the permission domain exclusively (not the permission domain itself).
 
-Within `ColonyAuthority.sol` you will see this role implemented as both`Architecture` and `ArchitectureSubdomain` roles. This is in order to prohibit an architect from modifying the domain in which the role was given (which would allow them to, for example, remove their co-architect's role). Architects may alter permissions in sub-domains only.
+Within `LabboAuthority.sol` you will see this role implemented as both`Architecture` and `ArchitectureSubdomain` roles. This is in order to prohibit an architect from modifying the domain in which the role was given (which would allow them to, for example, remove their co-architect's role). Architects may alter permissions in sub-domains only.

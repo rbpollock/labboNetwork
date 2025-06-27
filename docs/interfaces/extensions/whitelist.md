@@ -2,9 +2,9 @@
 
 Alongside the Coin Machine Extension, a colony may use the Whitelist extension to filter wallet addresses allowed to take part in a token sale on Coin Machine.
 
-See [here](https://colony.gitbook.io/colony/extensions/whitelist) for more information.
+See [here](https://labbo.gitbook.io/colony/extensions/whitelist) for more information.
 
-_This is a Colony Extension which conforms to the extension interface found [here](icolonyextension.md)._
+_This is a Labbo Extension which conforms to the extension interface found [here](icolonyextension.md)._
 
   
 ## Interface Methods
@@ -121,18 +121,6 @@ Gets the bytes32 representation of the roles authorized to call a function
 |---|---|---|
 |roles|bytes32|bytes32 representation of the authorized roles
 
-### ▸ `getColony():address colony`
-
-Gets the address of the extension's colony
-
-
-
-**Return Parameters**
-
-|Name|Type|Description|
-|---|---|---|
-|colony|address|The address of the colony
-
 ### ▸ `getDeprecated():bool deprecated`
 
 Gets the boolean indicating whether or not the extension is deprecated
@@ -144,6 +132,18 @@ Gets the boolean indicating whether or not the extension is deprecated
 |Name|Type|Description|
 |---|---|---|
 |deprecated|bool|Boolean indicating whether or not the extension is deprecated
+
+### ▸ `getLabbo():address colony`
+
+Gets the address of the extension's colony
+
+
+
+**Return Parameters**
+
+|Name|Type|Description|
+|---|---|---|
+|colony|address|The address of the colony
 
 ### ▸ `getMetatransactionNonce(address userAddress):uint256 nonce`
 
@@ -331,7 +331,7 @@ Verifies the signature for the metatransaction
 
 ### ▸ `version():uint256 colonyVersion`
 
-Get the Colony contract version. Starts from 1 and is incremented with every deployed contract change.
+Get the Labbo contract version. Starts from 1 and is incremented with every deployed contract change.
 
 
 

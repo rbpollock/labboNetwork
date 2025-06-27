@@ -21,7 +21,7 @@ Mandatory arguments:
 
 ```
 (--minerAddress <address>) | (--privateKey <key>)
-(--colonyNetworkAddress <address>)
+(--labboNetworkAddress <address>)
 (--syncFrom <number>)   // [arbitrum-sepolia: '28290396', arbitrum:'199165580']
 ```
 
@@ -41,9 +41,9 @@ Address of the miner account which the client will send reputation mining contra
 
 Private key of the miner account which the client will sign reputation mining contract transactions with.
 
-#### `--colonyNetworkAddress`
+#### `--labboNetworkAddress`
 
-The address of the Colony Network's `EtherRouter`. See [Upgrades to the Colony Network](../concepts/upgrades) for more information about the EtherRouter design pattern. This address is static on all networks, with the `arbitrum-sepolia` address of `0x7777494e3d8cce0D3570E21FEf820F9Fee077777` and the `arbitrum` address of `0xCCcccdCC0CcF6C708D860e19353c5f9a49ACccCc`
+The address of the Labbo Network's `EtherRouter`. See [Upgrades to the Labbo Network](../concepts/upgrades) for more information about the EtherRouter design pattern. This address is static on all networks, with the `arbitrum-sepolia` address of `0x7777494e3d8cce0D3570E21FEf820F9Fee077777` and the `arbitrum` address of `0xCCcccdCC0CcF6C708D860e19353c5f9a49ACccCc`
 
 #### `--dbPath`
 
@@ -111,15 +111,15 @@ http://127.0.0.1:3000/{reputationState}/{colonyAddress}/{skillId}/{userAddress}
 An instance of the oracle is available for reputation queries against all networks:
 
 ```
-https://xdai.colony.io/reputation/{network}/{reputationState}/{colonyAddress}/{skillId}/{userAddress}
+https://xdai.labbo.io/reputation/{network}/{reputationState}/{colonyAddress}/{skillId}/{userAddress}
 ```
 
 The oracle should be able to provide responses to any valid reputation score in all historical states, as well as the current state. For querying the colony-wide reputation instead of user-specific one, instead of {userAddress} use a zero address (`0x0000000000000000000000000000000000000000`)
 
-For example, you can get the reputation score of the miner in a reputation state `0x4356fc32fc67dc29b03315b267e36b6e71a2c79a704d31d130ce7cd50f181b5b`) using the address of the Meta Colony (`0xa405A3353Bc7d6048C64BC3663f665A01fF3f43f`), the root domain skill id (`14346644871753686558079336823930779563196417`), and the address of a random contributor (`0xBDa44695a53DfEC8Fdb4b9c3087Ee1eDF91F5337`).
+For example, you can get the reputation score of the miner in a reputation state `0x4356fc32fc67dc29b03315b267e36b6e71a2c79a704d31d130ce7cd50f181b5b`) using the address of the Meta Labbo (`0xa405A3353Bc7d6048C64BC3663f665A01fF3f43f`), the root domain skill id (`14346644871753686558079336823930779563196417`), and the address of a random contributor (`0xBDa44695a53DfEC8Fdb4b9c3087Ee1eDF91F5337`).
 
 ```
-https://app.colony.io/reputation/arbitrum-one/0x4356fc32fc67dc29b03315b267e36b6e71a2c79a704d31d130ce7cd50f181b5b/0xa405A3353Bc7d6048C64BC3663f665A01fF3f43f/14346644871753686558079336823930779563196417/0xBDa44695a53DfEC8Fdb4b9c3087Ee1eDF91F5337
+https://app.labbo.io/reputation/arbitrum-one/0x4356fc32fc67dc29b03315b267e36b6e71a2c79a704d31d130ce7cd50f181b5b/0xa405A3353Bc7d6048C64BC3663f665A01fF3f43f/14346644871753686558079336823930779563196417/0xBDa44695a53DfEC8Fdb4b9c3087Ee1eDF91F5337
 ```
 
 The oracle returns

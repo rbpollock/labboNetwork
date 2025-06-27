@@ -1,6 +1,6 @@
 # Token Locking (`ITokenLocking`)
 
-This contract supports secure token voting for the Colony Network,
+This contract supports secure token voting for the Labbo Network,
 allowing for on-chain token votes to occur without the risk of "double-voting".
 Unlike Snapshot, which uses state snapshots to allow for secure voting off-chain,
 this contract allows for secure voting on-chain by preventing users from
